@@ -1,0 +1,91 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --pending: #9ca3af;
+  --accent: #1d4ed8;
+  --panel: #f9fafb;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --fg: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #262b33;
+    --pending: #6b7280;
+    --accent: #60a5fa;
+    --panel: #151922;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.app {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+h1 { margin: 0 0 0.25rem; font-size: 1.6rem; }
+.tagline, .muted { color: var(--muted); }
+.tagline { margin-top: 0; }
+
+.dimensions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.dimensions button {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--fg);
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.dimensions button.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.compare th, .compare td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+.compare thead th { color: var(--muted); font-weight: 600; }
+
+.metric { display: inline-flex; align-items: baseline; gap: 0.3rem; }
+.metric--pending .metric__value { color: var(--pending); font-style: italic; }
+.metric__value { font-variant-numeric: tabular-nums; font-weight: 600; }
+.metric__unit { color: var(--muted); font-size: 0.8rem; }
+.metric__src { font-size: 0.72rem; color: var(--accent); text-decoration: none; }
+
+.verdicts { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.verdict {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+}
+.verdict p { margin: 0.35rem 0; }
+.verdict--suppressed strong { color: var(--muted); }
+.caveats { margin: 0.25rem 0 0; padding-left: 1rem; color: var(--muted); font-size: 0.8rem; }
+
+footer { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 1rem; font-size: 0.85rem; }
+h2 { font-size: 1.1rem; margin: 2rem 0 0.75rem; }

@@ -1,0 +1,19 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vite
+coverage
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# data working files (large source dumps live outside git until logged)
+/data-raw
+*.osm.pbf
+
+# TypeScript incremental build info
+*.tsbuildinfo
